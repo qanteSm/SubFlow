@@ -1,4 +1,4 @@
-module github.com/mabuyuk/subflow
+module github.com/qantesm/subflow
 
 go 1.21
 

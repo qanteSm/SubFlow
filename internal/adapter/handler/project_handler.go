@@ -7,7 +7,7 @@ package handler
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/mabuyuk/subflow/internal/core/service"
+	"github.com/qantesm/subflow/internal/core/service"
 )
 
 // ProjectHandler handles HTTP requests for project operations

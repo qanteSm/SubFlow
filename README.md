@@ -61,7 +61,7 @@
 
 ```bash
 # 1. Projeyi klonla
-git clone https://github.com/mabuyuk/subflow.git
+git clone https://github.com/qantesm/subflow.git
 cd subflow
 
 # 2. Docker ile başlat

@@ -9,7 +9,7 @@ import (
 	"context"
 
 	"github.com/google/uuid"
-	"github.com/mabuyuk/subflow/internal/core/entity"
+	"github.com/qantesm/subflow/internal/core/entity"
 )
 
 // LedgerSummary represents the financial state of a project

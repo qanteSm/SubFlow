@@ -10,8 +10,8 @@ import (
 	"sync"
 
 	"github.com/google/uuid"
-	"github.com/mabuyuk/subflow/internal/core/entity"
-	"github.com/mabuyuk/subflow/internal/core/service"
+	"github.com/qantesm/subflow/internal/core/entity"
+	"github.com/qantesm/subflow/internal/core/service"
 )
 
 // InMemoryTransactionRepository is a simple in-memory implementation

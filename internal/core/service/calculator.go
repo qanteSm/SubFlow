@@ -8,7 +8,7 @@
 package service
 
 import (
-	"github.com/mabuyuk/subflow/internal/core/entity"
+	"github.com/qantesm/subflow/internal/core/entity"
 )
 
 // AIABillingInput contains all data needed for AIA G702/G703 calculations
