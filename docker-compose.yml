@@ -1,0 +1,114 @@
+# =============================================================================
+# SubFlow: Enterprise Construction Financial Ledger
+# Docker Compose Configuration
+# Copyright (c) 2026 Muhammet Ali Büyük. All rights reserved.
+# Contact: iletisim@alibuyuk.net | Website: alibuyuk.net
+# =============================================================================
+
+version: '3.9'
+
+services:
+  # ===========================================
+  # SubFlow API Server
+  # ===========================================
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: subflow-api
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=subflow
+      - DB_PASSWORD=subflow_secure_password
+      - DB_NAME=subflow
+      - DB_SSLMODE=disable
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - LOG_LEVEL=info
+      - ENVIRONMENT=development
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    networks:
+      - subflow-network
+    restart: unless-stopped
+    labels:
+      - "architect=Muhammet-Ali-Buyuk"
+
+  # ===========================================
+  # PostgreSQL Database (Ledger Storage)
+  # ===========================================
+  postgres:
+    image: postgres:15-alpine
+    container_name: subflow-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=subflow
+      - POSTGRES_PASSWORD=subflow_secure_password
+      - POSTGRES_DB=subflow
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./migrations/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U subflow -d subflow" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - subflow-network
+    restart: unless-stopped
+
+  # ===========================================
+  # Redis (Session & Cache)
+  # ===========================================
+  redis:
+    image: redis:7-alpine
+    container_name: subflow-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - subflow-network
+    restart: unless-stopped
+
+  # ===========================================
+  # Adminer (Database UI - Development Only)
+  # ===========================================
+  adminer:
+    image: adminer:latest
+    container_name: subflow-adminer
+    ports:
+      - "8080:8080"
+    environment:
+      - ADMINER_DEFAULT_SERVER=postgres
+    depends_on:
+      - postgres
+    networks:
+      - subflow-network
+    profiles:
+      - dev
+
+# ===========================================
+# Networks
+# ===========================================
+networks:
+  subflow-network:
+    driver: bridge
+
+# ===========================================
+# Volumes (Persistent Storage)
+# ===========================================
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local

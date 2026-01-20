@@ -1,21 +1,54 @@
-MIT License
+SubFlow Proprietary License
+Copyright (c) 2026 Muhammet Ali Büyük. All rights reserved.
 
-Copyright (c) 2026 Muhammet Ali Büyük
+================================================================================
+                              LICENSE AGREEMENT
+================================================================================
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This software and associated documentation files (the "Software") are the
+exclusive property of Muhammet Ali Büyük ("Owner").
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+PERMISSIONS
+-----------
+You ARE permitted to:
+  ✓ View, read, and study this source code for educational purposes
+  ✓ Fork this repository to your own GitHub account for reference
+  ✓ Use this code as a learning resource for understanding software architecture
 
+RESTRICTIONS
+------------
+You are NOT permitted to:
+  ✗ Use any part of this code in commercial applications without written consent
+  ✗ Redistribute, sublicense, or sell copies of this Software
+  ✗ Modify and distribute the Software as your own work
+  ✗ Remove or alter any copyright notices, watermarks, or ownership markers
+  ✗ Use the Software to provide a competing service
+
+COMMERCIAL LICENSING
+--------------------
+For commercial use, enterprise licensing, or acquiring full rights:
+
+  📧 Email: iletisim@alibuyuk.net
+  🌐 Website: https://alibuyuk.net
+  👤 Owner: Muhammet Ali Büyük
+
+INTELLECTUAL PROPERTY PROTECTION
+--------------------------------
+This Software contains embedded digital signatures and architectural patterns
+that serve as proof of authorship. Any unauthorized use may be detected and
+will be subject to legal action.
+
+DISCLAIMER
+----------
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+IMPLIED. IN NO EVENT SHALL THE OWNER BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY ARISING FROM THE USE OF THIS SOFTWARE.
+
+================================================================================
+                           DIGITAL FINGERPRINT
+================================================================================
+Architect: Muhammet-Ali-Buyuk
+Project: SubFlow Enterprise Construction Financial Ledger
+Build: SF-2026-ENTERPRISE
+Registry: GitHub/mabuyuk/subflow
+================================================================================
