@@ -108,18 +108,66 @@ subflow/
 
 ## 🧮 AIA Hesaplama Motoru
 
+### Hesaplama Örneği
+
+**Senaryo:** Metro İstasyonu Genişletme Projesi - Ocak 2026 Hakedişi
+
+#### 📥 Giriş Verileri (Input)
+
+| Parametre | Değer | Açıklama |
+|-----------|-------|----------|
+| `OriginalContractSum` | 100.000.000 kuruş | Orijinal sözleşme: ₺1.000.000 |
+| `ApprovedChangeOrders` | 5.000.000 kuruş | Değişiklik emirleri: ₺50.000 |
+| `PreviousWorkCompleted` | 30.000.000 kuruş | Önceki dönem iş: ₺300.000 |
+| `CurrentWorkCompleted` | 15.000.000 kuruş | Bu dönem iş: ₺150.000 |
+| `StoredMaterials` | 5.000.000 kuruş | Şantiye malzeme: ₺50.000 |
+| `PreviousCertificates` | 25.000.000 kuruş | Önceki ödemeler: ₺250.000 |
+| `LaborRetainageRate` | 1000 | İşçilik teminatı: %10 |
+| `MaterialRetainageRate` | 500 | Malzeme teminatı: %5 |
+
+#### 📤 Çıkış Verileri (Output)
+
+| Hesaplama Adımı | Formül | Sonuç |
+|-----------------|--------|-------|
+| **Sözleşme Toplamı** | Orijinal + Değişiklik | ₺1.050.000 |
+| **Toplam Tamamlanan İş** | Önceki + Bu Dönem | ₺450.000 |
+| **Toplam (İş + Malzeme)** | İş + Malzeme | ₺500.000 |
+| **İşçilik Teminatı** | ₺450.000 × %10 | -₺45.000 |
+| **Malzeme Teminatı** | ₺50.000 × %5 | -₺2.500 |
+| **Toplam Teminat** | İşçilik + Malzeme | -₺47.500 |
+| **Kazanılan Toplam** | ₺500.000 - ₺47.500 | ₺452.500 |
+| **Eksi Önceki Ödemeler** | - | -₺250.000 |
+| **✅ ÖDENECEK TUTAR** | ₺452.500 - ₺250.000 | **₺202.500** |
+| **Tamamlanma Oranı** | ₺500.000 / ₺1.050.000 | %47.62 |
+| **Kalan İş** | ₺1.050.000 - ₺500.000 | ₺550.000 |
+
+#### 💻 Kod Örneği
+
 ```go
-// Örnek hakediş hesaplaması
 result := calculator.Calculate(AIABillingInput{
-    OriginalContractSum:   100000000, // ₺1,000,000.00
-    CurrentWorkCompleted:   15000000, // ₺150,000.00
-    LaborRetainageRate:         1000, // %10
+    OriginalContractSum:   100000000,  // ₺1,000,000.00
+    ApprovedChangeOrders:   5000000,   // ₺50,000.00
+    PreviousWorkCompleted: 30000000,   // ₺300,000.00
+    CurrentWorkCompleted:  15000000,   // ₺150,000.00
+    StoredMaterials:        5000000,   // ₺50,000.00
+    PreviousCertificates:  25000000,   // ₺250,000.00
+    LaborRetainageRate:        1000,   // %10 (basis points)
+    MaterialRetainageRate:      500,   // %5 (basis points)
 })
 
-// Sonuç
-result.CurrentPaymentDue // Ödenecek tutar (kuruş cinsinden)
-result.TotalRetainage    // Tutulan teminat
-result.PercentComplete   // Tamamlanma yüzdesi
+fmt.Println(result.CurrentPaymentDue) // 20250000 (₺202.500,00)
+fmt.Println(result.TotalRetainage)    // 4750000 (₺47.500,00)
+fmt.Println(result.PercentComplete)   // 4762 (%47.62)
+```
+
+#### 🖨️ Rapor Oluşturma
+
+```bash
+# HTML/PDF rapor oluştur
+go run generate_report.go
+
+# Tarayıcıda aç
+start report_hakedis.html
 ```
 
 ---

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubFlow - AIA G702/G703 Hakediş Raporu</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px;
+        }
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+        .header { 
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white; 
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 { font-size: 28px; margin-bottom: 5px; }
+        .header p { opacity: 0.9; }
+        .logo { font-size: 40px; margin-bottom: 10px; }
+        .project-info { 
+            background: #f8fafc; 
+            padding: 20px 30px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .project-info h2 { color: #1e40af; margin-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .info-item { }
+        .info-item label { color: #64748b; font-size: 12px; display: block; }
+        .info-item span { font-weight: 600; color: #1e293b; }
+        .section { padding: 25px 30px; border-bottom: 1px solid #e2e8f0; }
+        .section h3 { 
+            color: #1e40af; 
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        table tr { border-bottom: 1px solid #e2e8f0; }
+        table td { padding: 12px 0; }
+        table td:last-child { text-align: right; font-weight: 600; }
+        .highlight { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; }
+        .highlight td { padding: 20px 30px; font-size: 18px; }
+        .retainage { color: #dc2626; }
+        .progress-bar { 
+            width: 100%; 
+            height: 20px; 
+            background: #e2e8f0; 
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-fill { 
+            height: 100%; 
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        .footer { 
+            padding: 20px 30px; 
+            text-align: center; 
+            color: #64748b;
+            font-size: 12px;
+        }
+        .footer a { color: #3b82f6; text-decoration: none; }
+        .badge { 
+            display: inline-block;
+            padding: 4px 12px;
+            background: #dbeafe;
+            color: #1e40af;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🏗️</div>
+            <h1>SubFlow</h1>
+            <p>Enterprise Construction Financial Ledger</p>
+        </div>
+        
+        <div class="project-info">
+            <h2>Metro İstasyonu Genişletme Projesi</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <label>Proje Kodu</label>
+                    <span>PRJ-2026-001</span>
+                </div>
+                <div class="info-item">
+                    <label>Yüklenici</label>
+                    <span>ABC İnşaat A.Ş.</span>
+                </div>
+                <div class="info-item">
+                    <label>Dönem</label>
+                    <span>Ocak 2026</span>
+                </div>
+                <div class="info-item">
+                    <label>Rapor Tarihi</label>
+                    <span>20.01.2026</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>📊 Sözleşme Bilgileri</h3>
+            <table>
+                <tr>
+                    <td>Orijinal Sözleşme Tutarı</td>
+                    <td>₺1000000.00</td>
+                </tr>
+                <tr>
+                    <td>Onaylı Değişiklik Emirleri</td>
+                    <td>₺50000.00</td>
+                </tr>
+                <tr>
+                    <td><strong>Toplam Sözleşme Tutarı</strong></td>
+                    <td><strong>₺1050000.00</strong></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h3>📈 İş İlerlemesi</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 47.6%;"></div>
+            </div>
+            <p style="text-align: center; color: #64748b;">Tamamlanma: <strong>%.1f%</strong></p>
+            <table style="margin-top: 15px;">
+                <tr>
+                    <td>Önceki Dönem Tamamlanan İş</td>
+                    <td>%!s(float64=47.61)</td>
+                </tr>
+                <tr>
+                    <td>Bu Dönem Tamamlanan İş</td>
+                    <td>₺300000.00</td>
+                </tr>
+                <tr>
+                    <td>Toplam Tamamlanan İş</td>
+                    <td>₺150000.00</td>
+                </tr>
+                <tr>
+                    <td>Şantiyedeki Malzeme</td>
+                    <td>₺450000.00</td>
+                </tr>
+                <tr>
+                    <td><strong>Toplam Tamamlanan + Malzeme</strong></td>
+                    <td><strong>₺50000.00</strong></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h3>🔒 Teminat Kesintileri</h3>
+            <table>
+                <tr>
+                    <td>İşçilik Teminatı (%%!f(string=₺))</td>
+                    <td class="retainage">-%!s(float64=10)</td>
+                </tr>
+                <tr>
+                    <td>Malzeme Teminatı (%%!f(string=₺))</td>
+                    <td class="retainage">-%!s(float64=5)</td>
+                </tr>
+                <tr>
+                    <td><strong>Toplam Teminat Kesintisi</strong></td>
+                    <td class="retainage"><strong>-₺2500.00</strong></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h3>💰 Ödeme Hesabı</h3>
+            <table>
+                <tr>
+                    <td>Kazanılan Toplam (Tamamlanan - Teminat)</td>
+                    <td>₺47500.00</td>
+                </tr>
+                <tr>
+                    <td>Eksi: Önceki Ödemeler</td>
+                    <td class="retainage">-₺452500.00</td>
+                </tr>
+            </table>
+        </div>
+        
+        <table class="highlight">
+            <tr>
+                <td>💵 ÖDENECEK TUTAR</td>
+                <td>₺250000.00</td>
+            </tr>
+        </table>
+        
+        <div class="section">
+            <table>
+                <tr>
+                    <td>Kalan İş Tutarı</td>
+                    <td>₺202500.00</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="footer">
+            <p><span class="badge">AIA G702/G703 Uyumlu</span></p>
+            <p style="margin-top: 15px;">
+                Bu rapor <strong>SubFlow Enterprise</strong> tarafından oluşturulmuştur.<br>
+                Mimar: <a href="https://alibuyuk.net">Muhammet Ali Büyük</a> | 
+                <a href="mailto:iletisim@alibuyuk.net">iletisim@alibuyuk.net</a>
+            </p>
+            <p style="margin-top: 10px; font-size: 10px; color: #94a3b8;">
+                © 2026 SubFlow. Tüm hakları saklıdır.
+            </p>
+        </div>
+    </div>
+</body>
+</html>%!(EXTRA string=₺550000.00)

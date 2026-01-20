@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubFlow - AIA G702 Application for Payment</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #f0f4f8;
+            padding: 20px;
+        }
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: white;
+            border: 2px solid #1e3a8a;
+        }
+        .header { 
+            background: #1e3a8a;
+            color: white; 
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 { font-size: 18px; }
+        .header .doc-id { font-size: 14px; opacity: 0.9; }
+        .form-title {
+            text-align: center;
+            padding: 15px;
+            border-bottom: 2px solid #1e3a8a;
+            font-size: 16px;
+            font-weight: bold;
+            background: #dbeafe;
+        }
+        .info-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 1px solid #ccc;
+        }
+        .info-box {
+            padding: 10px 15px;
+            border-right: 1px solid #ccc;
+        }
+        .info-box:last-child { border-right: none; }
+        .info-box label { 
+            font-size: 10px; 
+            color: #666; 
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 3px;
+        }
+        .info-box span { font-weight: 600; }
+        .application-section {
+            padding: 15px;
+            border-bottom: 2px solid #1e3a8a;
+        }
+        .application-section h3 {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        table tr { border-bottom: 1px solid #eee; }
+        table td { padding: 8px 5px; font-size: 13px; }
+        table td:first-child { width: 30px; color: #666; }
+        table td:last-child { text-align: right; font-weight: 600; }
+        .line-highlight {
+            background: #fef3c7;
+        }
+        .payment-due {
+            background: #10b981;
+            color: white;
+        }
+        .payment-due td { 
+            padding: 15px; 
+            font-size: 16px; 
+            font-weight: bold;
+        }
+        .negative { color: #dc2626; }
+        .progress-section {
+            padding: 15px;
+            background: #f8fafc;
+        }
+        .progress-bar {
+            height: 24px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .footer {
+            padding: 15px;
+            text-align: center;
+            font-size: 11px;
+            color: #666;
+            border-top: 2px solid #1e3a8a;
+        }
+        .footer a { color: #1e3a8a; }
+        .aia-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            background: #1e3a8a;
+            color: white;
+            border-radius: 3px;
+            font-size: 10px;
+            margin-bottom: 10px;
+        }
+        @media print {
+            body { padding: 0; background: white; }
+            .container { border: 1px solid black; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>🏗️ SubFlow</h1>
+                <small>Enterprise Construction Financial Ledger</small>
+            </div>
+            <div class="doc-id">
+                Başvuru No: 3<br>
+                Dönem: Ocak 2026
+            </div>
+        </div>
+
+        <div class="form-title">
+            AIA DOCUMENT G702 - APPLICATION AND CERTIFICATE FOR PAYMENT
+        </div>
+
+        <div class="info-section">
+            <div class="info-box">
+                <label>Proje Adı</label>
+                <span>Metro İstasyonu Genişletme Projesi</span>
+            </div>
+            <div class="info-box">
+                <label>Proje No</label>
+                <span>PRJ-2026-001</span>
+            </div>
+        </div>
+        <div class="info-section">
+            <div class="info-box">
+                <label>Yüklenici</label>
+                <span>ABC İnşaat A.Ş.</span>
+            </div>
+            <div class="info-box">
+                <label>Tarih</label>
+                <span>20.01.2026</span>
+            </div>
+        </div>
+
+        <div class="application-section">
+            <h3>Contractor's Application for Payment</h3>
+            <table>
+                <tr>
+                    <td>1.</td>
+                    <td>Original Contract Sum</td>
+                    <td>₺1.000.000,00</td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td>Net Change by Change Orders</td>
+                    <td>₺50.000,00</td>
+                </tr>
+                <tr class="line-highlight">
+                    <td>3.</td>
+                    <td><strong>Contract Sum to Date (Line 1 + 2)</strong></td>
+                    <td><strong>₺1.050.000,00</strong></td>
+                </tr>
+                <tr>
+                    <td>4.</td>
+                    <td>Total Completed & Stored to Date (from G703)</td>
+                    <td>₺500.000,00</td>
+                </tr>
+                <tr>
+                    <td>4a.</td>
+                    <td>Retainage (%10,00 of Line 4)</td>
+                    <td class="negative">-₺50.000,00</td>
+                </tr>
+                <tr class="line-highlight">
+                    <td>5.</td>
+                    <td><strong>Total Earned Less Retainage (Line 4 - 4a)</strong></td>
+                    <td><strong>₺450.000,00</strong></td>
+                </tr>
+                <tr>
+                    <td>6.</td>
+                    <td>Less Previous Certificates for Payment</td>
+                    <td class="negative">-₺250.000,00</td>
+                </tr>
+            </table>
+        </div>
+
+        <table class="payment-due">
+            <tr>
+                <td>7.</td>
+                <td>CURRENT PAYMENT DUE</td>
+                <td>₺200.000,00</td>
+            </tr>
+        </table>
+
+        <div class="application-section">
+            <table>
+                <tr>
+                    <td>8.</td>
+                    <td>Balance to Finish, Including Retainage</td>
+                    <td>₺600.000,00</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="progress-section">
+            <strong>Percentage of Completion:</strong>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 47.61%;">
+                    47.61%
+                </div>
+            </div>
+        </div>
+
+        <div class="application-section">
+            <h3>G703 Continuation Sheet Summary</h3>
+            <table>
+                <tr>
+                    <td>A.</td>
+                    <td>Work Completed - Previous Applications</td>
+                    <td>₺300.000,00</td>
+                </tr>
+                <tr>
+                    <td>B.</td>
+                    <td>Work Completed - This Period</td>
+                    <td>₺150.000,00</td>
+                </tr>
+                <tr>
+                    <td>C.</td>
+                    <td>Materials Presently Stored</td>
+                    <td>₺50.000,00</td>
+                </tr>
+                <tr class="line-highlight">
+                    <td>D.</td>
+                    <td><strong>Total Completed & Stored to Date (A+B+C)</strong></td>
+                    <td><strong>₺500.000,00</strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="footer">
+            <span class="aia-badge">AIA G702/G703 UYUMLU</span><br>
+            Bu form AIA (American Institute of Architects) G702 Application and Certificate for Payment 
+            standardına uygun olarak hazırlanmıştır.<br><br>
+            <strong>SubFlow Enterprise</strong> | Mimar: <a href="https://alibuyuk.net">Muhammet Ali Büyük</a><br>
+            © 2026 Tüm hakları saklıdır.
+        </div>
+    </div>
+</body>
+</html>
